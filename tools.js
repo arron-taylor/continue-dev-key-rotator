@@ -1,7 +1,7 @@
 // === Continue Agent Mode defaults (system + tools) ===
 // Default system message similar to what Continue injects in Agent mode.
 // Keep this short but explicit about function-calling behavior.
-const DEFAULT_SYSTEM_MESSAGE = `You are an automated coding assistant operating in Agent mode. 
+export const DEFAULT_SYSTEM_MESSAGE = `You are an automated coding assistant operating in Agent mode. 
 When a tool/function is required, produce a structured function call that matches the provided function schema.
 Do not output extra natural-language text outside the function call when a function call is required.
 When returning results of tool calls to the user, prefer concise, clear results and follow the tool descriptions exactly.`;

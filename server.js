@@ -1,8 +1,6 @@
 import express from "express";
 import fetch from "node-fetch";
-import { DEFAULT_SYSTEM_MESSAGE, DEFAULT_TOOLS } from "./tools";
-
-dotenv.config();
+import { DEFAULT_SYSTEM_MESSAGE, DEFAULT_TOOLS } from "./tools.js";
 
 const app = express();
 app.use(express.json());
