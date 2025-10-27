@@ -105,10 +105,6 @@ app.post(
         if(!outgoingPayload.contents){
          outgoingPayload.contents=[{role:"user",parts:[{text:""}]}];
         }
-        const hasSystem = outgoingPayload.contents.some(c=>c.role==="system");
-        if(!hasSystem){
-         outgoingPayload.contents.unshift({role:"system",parts:[{text:DEFAULT_SYSTEM_MESSAGE}]});
-        }
         if(!outgoingPayload.tools){
          outgoingPayload.tools = DEFAULT_TOOLS;
         }
