@@ -54,11 +54,36 @@ node server.js
 
 Simply configure Continue.dev to point to `http://localhost:3000` as the provider endpoint. The proxy will handle system prompts, tool injection, and API key rotation automatically.
 
+### Configuring Continue.dev Agents
+
+To wire up the proxy with Continue.dev, add models to your `.continue/config.yaml` or create an agents file like `.continue/agents/local.yaml`. Set the `apiBase` for each model to point to the proxy's local endpoint:
+
+- **Gemini**: `apiBase: http://localhost:3000/v1/`
+- **Cohere**: `apiBase: http://localhost:3000/v2/`
+- **Codestral**: `apiBase: http://localhost:3000/v1/` (uses OpenAI-compatible endpoint)
+- **Groq**: `apiBase: http://localhost:3000/groq/`
+
+Example model configuration:
+
+```yaml
+- name: Local Gemini Proxy
+  provider: gemini
+  model: gemini-2.5-pro
+  apiBase: http://localhost:3000/v1/
+  roles: [chat, edit, apply]
+```
+
+This allows you to seamlessly switch between providers or use the proxy for Agent Mode without changing your Continue.dev setup.
+
 ## Notes
 
 * Tool execution is handled client-side; this proxy only forwards and formats requests.
 * Designed for local development or private networks. Do **not** expose unprotected to the public, as it will allow full access to your API keys.
 * Fully compatible with Continue.dev, making it easy to integrate for Agent Mode without modifying client logic.
+
+## Contributing
+
+PRs welcome! If you have improvements, bug fixes, or new features (like support for additional AI providers), feel free to open a pull request.
 
 ## License
 
