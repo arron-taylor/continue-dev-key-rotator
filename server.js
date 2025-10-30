@@ -83,5 +83,5 @@ app.post("/groq/chat/completions", async (req, res) => {
 
 // Start the proxy server
 app.listen(3000, () => {
-  console.log("Gemini proxy running on http://localhost:3000");
+  console.log("Continue.dev proxy running on http://localhost:3000");
 });
