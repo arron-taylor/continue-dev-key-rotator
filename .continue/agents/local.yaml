@@ -1,0 +1,51 @@
+name: local
+version: 1.0.0
+schema: v1
+models:
+  ## EXAMPLE MODELS ##
+  - name: Codestral
+    provider: mistral
+    model: codestral-latest
+    # apiKey: xxx
+    roles: [autocomplete, chat, edit, apply]
+  - name: Autodetect
+    provider: groq
+    model: AUTODETECT
+    # apiKey: xxx
+  - name: Cohere Reranker
+    provider: cohere
+    model: rerank-english-v3.0
+    # apiKey: xxx
+    roles:
+      - rerank
+  - name: Gemini 2.5 Flash
+    provider: gemini
+    model: gemini-2.5-flash
+    # apiKey: xxx
+    roles: [chat, edit, apply]
+    ####################
+    ### LOCAL PROXY ###
+    ####################
+  - name: arron-local-gemini
+    provider: gemini
+    model: gemini-2.5-pro
+    apiBase: http://localhost:3000/v1/
+  - name: arron-local-cohere
+    provider: cohere
+    model: command-a-reasoning-08-2025
+    apiBase: http://localhost:3000/v2/
+  ## IN PROGRESS ##
+  # - name: arron-local-codestral
+  #   provider: mistral
+  #   model: codestral-latest
+  #   apiBase: http://localhost:3000/v1/
+  - name: arron-local-groq-kimi-k2
+    provider: groq
+    model: moonshotai/kimi-k2-instruct
+    apiBase: http://localhost:3000/groq/
+  - name: arron-local-groq-qwen/qwen3-32b
+    provider: groq
+    model: qwen/qwen3-32b
+    apiBase: http://localhost:3000/groq/
+
+
